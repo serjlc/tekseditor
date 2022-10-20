@@ -69,7 +69,7 @@ class Teks(tk.Tk):
         """ If file exists, use its name. Otherwise leave as Untitled."""
 
         if name:
-            self.title(name + " - TeksEditor")
+            self.title(f"{name} - TeksEditor")
         else:
             self.title("Untitled - TeksEditor")
 
@@ -97,9 +97,6 @@ class Teks(tk.Tk):
                 self.textarea.insert(1.0, f.read())
 
             self.set_window_title(self.filename)
-        else:
-            pass
-
         # This resets any modification and waits for the next one
         self.textarea.edit_modified(0)
 
