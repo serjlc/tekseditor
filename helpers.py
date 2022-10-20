@@ -33,8 +33,7 @@ class RunCommand:
                                    universal_newlines=True,
                                    shell=True)
         process.wait()
-        output = process.communicate()
-        return output
+        return process.communicate()
 
 
 def abspath(file: str, dir: str = ".") -> str:
@@ -42,10 +41,7 @@ def abspath(file: str, dir: str = ".") -> str:
        Default dir current working directory"""
 
     file_path = path(__file__).parent.absolute().joinpath(dir).joinpath(file)
-    if file_path.exists():
-        return str(file_path)
-    else:
-        return ""
+    return str(file_path) if file_path.exists() else ""
 
 
 def dirpath(dir: str) -> str:
